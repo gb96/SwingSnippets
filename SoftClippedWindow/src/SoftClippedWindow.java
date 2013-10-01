@@ -155,10 +155,15 @@ public class SoftClippedWindow extends JFrame {
 
 							mainPanel.setDoubleBuffered(false);
 							mainPanel.setOpaque(false);
+							WindowMoveAdapter wma = new WindowMoveAdapter ();
+							mainPanel.addMouseListener ( wma );
+							mainPanel.addMouseMotionListener ( wma );
+
 							window.add(mainPanel, BorderLayout.CENTER);
 
 							window.setSize(180, 200);
 							window.setLocationRelativeTo(null);
+							window.setAlwaysOnTop(true);
 							window.setVisible(true);
 							AWTUtilities.setWindowOpaque(window,
 									false);
